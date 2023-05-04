@@ -67,8 +67,6 @@ ul {
 }
 @media (prefers-color-scheme: light) {
 	body {
-		--text-h1: var(--primary-1);
-		--text-bg: var(--light-1);
 		--text: var(--dark-1);
 		--background: #f7f7fa;
 		--foreground: #fff;
@@ -78,8 +76,6 @@ ul {
 }
 @media (prefers-color-scheme: dark) {
 	body {
-		--text-h1: var(--light-2);
-		--text-bg: var(--dark-1);
 		--text: var(--light-1);
 		--background: #1c1c28;
 		--foreground: #28293d;

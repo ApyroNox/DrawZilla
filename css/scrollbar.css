@@ -1,7 +1,7 @@
 :root {
 	--scrollbar-width: 0.4rem;
-	--scrollbar-track: var(--text-bg, steelblue);
-	--scrollbar-thumb: var(--primary-3, coral);
+	--scrollbar-track: var(--background, #222);
+	--scrollbar-thumb: var(--foreground, #ddd);
 }
 .scrollbar {
 	scrollbar-gutter: stable;
