@@ -1,0 +1,35 @@
+@import url('base.css');
+@import url('card.css');
+@import url('scrollbar.css');
+
+body {
+	height: 100dvh;
+	padding: var(--offset, 2rem)
+}
+@media (prefers-color-scheme: light) {
+	main.card {
+		background: var(--dark-3);
+	}
+}
+.menu-main-container {
+	height: 100%;
+	display: grid;
+	grid-template-columns: 4rem 1fr;
+	gap: 0.5rem;
+}
+menu {
+	display: grid;
+	grid-template-rows: max-content 1fr max-content;
+}
+main {
+	display: grid;
+	height: 100%;
+	gap: 0.5rem;
+	background: var(--foreground);
+}
+body:is(.landscape) main {
+	grid-template-columns: var(--width-left, 3fr) 1fr;
+}
+body:is(.portrait) main {
+	grid-template-rows: var(--width-left, 3fr) 1fr;
+}

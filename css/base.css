@@ -1,0 +1,113 @@
+html {
+	font-family: Open Sans, Nunito, sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+	line-height: 1.5;
+}
+:root {
+	--primary-1: #3568d4;
+	--primary-2: #3e7bfa;
+	--primary-3: #6698ff;
+	--light-1: #ebebf0;
+	--light-2: #f2f2f5;
+	--light-3: #fafafc;
+	--dark-1: #28293d;
+	--dark-2: #555770;
+	--dark-3: #8f90a6;
+	--red-1: #ff3b3b;
+	--red-2: #ff5c5c;
+	--red-3: #ff8080;
+	--green-1: #06c270;
+	--green-2: #39d98a;
+	--green-3: #57eba1;
+	--blue-1: #0063f7;
+	--blue-2: #5b8def;
+	--blue-3: #9dbff9;
+	--orange-1: #f80;
+	--orange-2: #fdac42;
+	--orange-3: #fccc75;
+	--yellow-1: #fc0;
+	--yellow-2: #fddd48;
+	--yellow-3: #fded72;
+	--teal-1: #00cfde;
+	--teal-2: #73dfe7;
+	--teal-3: #a9eff2;
+	--purple-1: #60c;
+	--purple-2: #ac5dd9;
+	--purple-3: #dda5e9;
+
+	--transition-delay: 0.5s;
+	--box-shadow: 0 0 0.25rem;
+}
+*,
+:after,
+:before {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+[hidden] {
+	display: none !important;
+}
+.noselect {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+}
+a {
+	color: inherit;
+	cursor: default;
+	text-decoration: none;
+}
+a[href] {
+	cursor: pointer;
+	text-decoration: underline;
+}
+ul {
+	list-style: none;
+}
+@media (prefers-color-scheme: light) {
+	body {
+		--text-h1: var(--primary-1);
+		--text-bg: var(--light-1);
+		--text: var(--dark-1);
+		--background: #f7f7fa;
+		--foreground: #fff;
+		--color-border: var(--dark-1);
+		--color-shadow: var(--dark-1);
+	}
+}
+@media (prefers-color-scheme: dark) {
+	body {
+		--text-h1: var(--light-2);
+		--text-bg: var(--dark-1);
+		--text: var(--light-1);
+		--background: #1c1c28;
+		--foreground: #28293d;
+		--color-border: var(--light-1);
+		--color-shadow: var(--light-1);
+	}
+}
+body {
+	background: var(--background);
+	color: var(--text);
+	height: 100dvh;
+}
+div:is(.vr, .hr) {
+	border-width: 0;
+	background-color: var(--color-border);
+	opacity: 0.4;
+}
+div.vr {
+	width: 2px;
+	min-height: var(--line-min, 0%);
+	max-height: var(--line-max, 100%);
+	height: 100%;
+	margin: auto 3px;
+}
+div.hr {
+	height: 2px;
+	min-width: var(--line-min, 0%);
+	max-width: var(--line-max, 100%);
+	width: 100%;
+	margin: 3px auto;
+}

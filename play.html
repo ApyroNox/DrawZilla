@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="Content-Language" content="en" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta http-equiv="Pragma" content="cache" />
+
+		<title>Template</title>
+
+		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+
+		<!-- Fonts -->
+		<link rel="preload" href="css/font-awesome-v6.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+		<link rel="preload" href="css/font-nunito.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+		<noscript>
+			<link rel="stylesheet" href="css/font-awesome-v6.css" />
+			<link rel="stylesheet" href="css/font-nunito.css" />
+		</noscript>
+
+		<!-- Styles -->
+		<link rel="stylesheet" href="css/app.css" />
+		<style>
+			canvas {
+				background: white;
+			}
+			#canvas-container {
+				position: relative;
+				padding: 0;
+			}
+			#canvas {
+				position: absolute;
+				bottom: -1px;
+				right: -1px;
+				transform-origin: bottom right;
+				transform: scale(var(--canvas-scale-factor, 1));
+			}
+			#content.ingame {
+				display: grid;
+				grid-template-rows: 1fr 3rem;
+				gap: 0.5rem;
+			}
+			.chatmessage::before {
+				content: '' attr(data-username) ':';
+				text-decoration: underline double;
+				margin-right: 0.25rem;
+			}
+			/* 
+			main 2nd col with javascript
+			*/
+		</style>
+
+		<!-- Scripts -->
+		<script src="js/app.js" defer></script>
+		<script src="js/settings.js" defer></script>
+		<script src="js/watchmedia.js" defer></script>
+		<script src="js/Game.js" defer></script>
+	</head>
+
+	<body style="--offset: 1rem">
+		<div class="menu-main-container" style="--border-radius: 0.5rem; --offset: 7px">
+			<menu class="card rounded">
+				<div><img src="/favicon.ico" width="48" height="48" /></div>
+				<div></div>
+				<div><img src="/favicon.ico" width="48" height="48" /></div>
+			</menu>
+			<main class="card rounded" style="--width-left: 3fr">
+				<section id="content" class="ingame">
+					<div id="canvas-container" class="card rounded">
+						<canvas id="canvas" width="400" height="300"></canvas>
+					</div>
+					<div id="tools-container" class="card rounded"></div>
+				</section>
+				<aside id="aside" class="card rounded">
+					<ul>
+						<li>
+							<p><span class="chatmessage" data-username="ApyroNox">Bist du dir sicher? Ich denke dass die eine gewisse größe schon haben sollte.</span></p>
+						</li>
+					</ul>
+				</aside>
+			</main>
+		</div>
+	</body>
+</html>

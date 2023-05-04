@@ -1,0 +1,28 @@
+:root {
+	--scrollbar-width: 0.4rem;
+	--scrollbar-track: var(--text-bg, steelblue);
+	--scrollbar-thumb: var(--primary-3, coral);
+}
+.scrollbar {
+	scrollbar-gutter: stable;
+	scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+}
+.scrollbar:is(::-webkit-scrollbar, ::-webkit-scrollbar-button, ::-webkit-scrollbar-thumb, ::-webkit-scrollbar-track) {
+	border-radius: 5rem;
+}
+.scrollbar:is(::-webkit-scrollbar, ::-webkit-scrollbar-track) {
+	background: var(--scrollbar-track);
+	width: var(--scrollbar-width);
+}
+.scrollbar:is(::-webkit-scrollbar-thumb) {
+	background: var(--scrollbar-thumb);
+}
+.scrollbar:is(::-webkit-scrollbar-button) {
+	height: 0;
+}
+.scrollbar.scrollbar-btns:is(::-webkit-scrollbar-button) {
+	height: var(--scrollbar-width);
+}
+.scrollbar.scrollbar-btns {
+	scrollbar-width: unset;
+}
