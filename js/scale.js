@@ -1,4 +1,5 @@
-let mainElement = document.querySelector('main');
+let contentElement = document.querySelector('#main-content');
+let toolsHeight = 56;
 
 function getBoundingRects(...elements) {
 	elements.forEach((element) => {
@@ -6,35 +7,23 @@ function getBoundingRects(...elements) {
 	});
 }
 
-function checkElementClass(domElement, cssClass) {
-	return domElement.classList.contains(cssClass);
+function getFactor(containerBounds) {
+	if (checkElementClass(document.body, 'portrait')) {
+		return (containerBounds.width * 0.25 * 0.01).toFixed(2);
+	} else if (checkElementClass(document.body, 'landscape')) {
+		return ((containerBounds.height - (toolsHeight - 2)) * 0.3325 * 0.01).toFixed(2);
+	}
+	return 1;
 }
 
 function getScalingConfig(containerElement) {
-	// calculate positions
 	getBoundingRects(containerElement);
 
-	let containerBounds = containerElement.boundings;
-	let factor = 1;
-
-	// factor = Number((canvasBounds.width * 0.25 * 0.01).toFixed(2));
-	// or
-	if (checkElementClass(document.body, 'portrait')) {
-		factor = (containerBounds.width * 0.25 * 0.01).toFixed(2);
-	} else if (checkElementClass(document.body, 'landscape')) {
-		factor = ((containerBounds.height - 54) * 0.3325 * 0.01).toFixed(2);
-	}
-
+	let factor = getFactor(containerElement.boundings);
 	let width = Math.floor(400 * factor);
 	let height = Math.floor(300 * factor);
 
-	if (height > containerBounds.height) {
-		// factor = Number((containerBounds.height * 0.3325 * 0.01).toFixed(2));
-		width = Math.floor(400 * factor);
-		height = Math.floor(300 * factor);
-	}
-
-	return [factor, width, height + 56];
+	return [factor, width, height + toolsHeight];
 }
 
 function setCanvasParameter(scaleFactor) {
@@ -45,27 +34,22 @@ function setMainParameter(width) {
 	document.querySelector('main').style.setProperty('--width-left', width);
 }
 
+function checkElementClass(element, cssClass) {
+	return element.classList.contains(cssClass);
+}
+
 function resize() {
 	// reset styles
 	setMainParameter('3fr');
 	setCanvasParameter(1);
 	// if (checkElementClass(document.body, 'portrait')) isPortrait = mainElement.boundings.width - canvasContainerElement.boundings.width > 300;
 
-	let elementToScale = document.querySelector('#content');
+	let [factor, width, height] = getScalingConfig(contentElement);
 
-	var [factor, width, height] = getScalingConfig(elementToScale);
+	let scale = checkElementClass(document.body, 'landscape') ? width.toString() + 'px' : height.toString() + 'px';
 
-	// set styles
-	let widthParsed = width.toString() + 'px';
-	let heightParsed = height.toString() + 'px';
-
-	localStorage.setItem('preloaded.content.width', widthParsed);
-	localStorage.setItem('preloaded.content.height', heightParsed);
-
-	setMainParameter(checkElementClass(document.body, 'landscape') ? widthParsed : heightParsed);
+	setMainParameter(scale);
 	setCanvasParameter(factor);
-
-	return;
 }
 
 // document.addEventListener('DOMContentLoaded', (event) => {
@@ -82,7 +66,8 @@ window.addEventListener('load', (event) => {
 	let _resizeTimeOut;
 
 	clearTimeout(_resizeTimeOut);
-	_resizeTimeOut = setTimeout(resize, 100);
+	resize();
+	// _resizeTimeOut = setTimeout(resize, 100);
 
 	window.addEventListener('resize', function () {
 		clearTimeout(_resizeTimeOut);
