@@ -1,26 +1,28 @@
-:root {
-	--scrollbar-width: 0.4rem;
-	--scrollbar-track: var(--text-bg, steelblue);
-	--scrollbar-thumb: var(--primary-3, coral);
-}
 .scrollbar {
+	--scrollbar-width: 8px;
+	--scrollbar-track: var(--color-background, #222);
+	--scrollbar-thumb: var(--color-foreground, #ddd);
 	scrollbar-gutter: stable;
 	scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
 }
-.scrollbar:is(::-webkit-scrollbar, ::-webkit-scrollbar-button, ::-webkit-scrollbar-thumb, ::-webkit-scrollbar-track) {
+.scrollbar::-webkit-scrollbar,
+.scrollbar::-webkit-scrollbar-button,
+.scrollbar::-webkit-scrollbar-thumb,
+.scrollbar::-webkit-scrollbar-track {
 	border-radius: 5rem;
 }
-.scrollbar:is(::-webkit-scrollbar, ::-webkit-scrollbar-track) {
+.scrollbar::-webkit-scrollbar,
+.scrollbar::-webkit-scrollbar-track {
 	background: var(--scrollbar-track);
 	width: var(--scrollbar-width);
 }
-.scrollbar:is(::-webkit-scrollbar-thumb) {
+.scrollbar::-webkit-scrollbar-thumb {
 	background: var(--scrollbar-thumb);
 }
-.scrollbar:is(::-webkit-scrollbar-button) {
+.scrollbar::-webkit-scrollbar-button {
 	height: 0;
 }
-.scrollbar.scrollbar-btns:is(::-webkit-scrollbar-button) {
+.scrollbar.scrollbar-btns::-webkit-scrollbar-button {
 	height: var(--scrollbar-width);
 }
 .scrollbar.scrollbar-btns {
