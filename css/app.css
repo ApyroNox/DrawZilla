@@ -2,61 +2,175 @@
 @import url('card.css');
 @import url('scrollbar.css');
 
+/* Body */
 body {
+	display: flex;
 	height: 100dvh;
 	padding: var(--offset, 2rem);
+	background: var(--color-background);
+	color: var(--color-text);
+	/* font-size: 1.25rem; */
+	/* font-weight: 400; */
 }
-@media (prefers-color-scheme: light) {
-	main.card {
-		background: var(--dark-3);
+@media (max-aspect-ratio: 5/3) {
+	#body-content {
+		width: 100%;
 	}
 }
-.menu-main-container {
-	height: 100%;
+@media (min-aspect-ratio: 5/3) {
+	#body-content {
+		height: 100%;
+	}
+}
+#body-content {
 	display: grid;
 	grid-template-columns: 4rem 1fr;
+	max-width: 100%;
+	max-height: 100%;
+	margin: auto;
 	gap: 0.5rem;
 }
-menu {
+body:is(.landscape) #body-content {
+	aspect-ratio: 5/3;
+}
+body:is(.portrait) #body-content {
+	aspect-ratio: 3/5;
+}
+
+/* Menu */
+#menu {
+	display: grid;
+	grid-template-rows: 4rem auto 1fr;
+	gap: 0.5rem;
+	overflow-y: auto;
+}
+nav {
 	display: grid;
 	grid-template-rows: max-content 1fr max-content;
 }
+#player-list {
+	border: 1px solid var(--accent);
+	overflow-y: auto;
+}
+.player-card {
+	display: grid;
+	position: relative;
+}
+.player-card::after {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: var(--accent);
+	border-radius: var(--border-radius);
+	/* margin: -0.5rem; */
+	content: '';
+	opacity: 0.1;
+}
+
+.player-card:nth-child(even)::after {
+	opacity: 0.1;
+}
+.player-card:nth-child(odd)::after {
+	opacity: 0.2;
+}
+/* Main */
+#main-content {
+	display: grid;
+	grid-template-rows: 1fr;
+	gap: 0.5rem;
+}
+#main-content.ingame {
+	grid-template-rows: 1fr 3rem;
+}
 main {
 	display: grid;
+	grid-template-columns: var(--width-left, 3fr) 1fr;
 	height: 100%;
 	gap: 0.5rem;
-	background: var(--foreground);
-}
-body:is(.landscape) main {
-	grid-template-columns: var(--width-left, 3fr) 1fr;
 }
 body:is(.portrait) main {
 	grid-template-rows: var(--width-left, 3fr) 1fr;
+	grid-template-columns: auto;
+}
+main::after {
+	--card-background: var(--primary);
+	opacity: 0.2;
 }
 
-/* play.html */
+/* Canvas */
 
-canvas {
-	background: white;
-}
 #canvas-container {
 	position: relative;
 	padding: 0;
 }
-#canvas {
+canvas {
+	background: white;
 	position: absolute;
 	bottom: -1px;
 	right: -1px;
 	transform-origin: bottom right;
 	transform: scale(var(--canvas-scale-factor, 1));
 }
-#content.ingame {
-	display: grid;
-	grid-template-rows: 1fr 3rem;
-	gap: 0.5rem;
+
+#tools-container {
+	color: var(--primary);
 }
-.chatmessage::before {
-	content: '' attr(data-username) ':';
-	text-decoration: underline double;
-	margin-right: 0.25rem;
+#tools-container {
+	background: var(--secondary);
+}
+
+/* Chat */
+
+#sozials {
+	display: grid;
+	grid-template-rows: 3rem 1fr 3rem;
+	gap: 0.5rem;
+	overflow: hidden;
+}
+#sozials > * {
+	background: var(--color-background);
+}
+#room-controls-container {
+	display: flex;
+}
+#room-controls-container > * {
+	width: 100%;
+	margin: 2px;
+}
+
+#chat {
+	overflow-y: auto;
+	word-wrap: break-word;
+}
+.chatmessage {
+	position: relative;
+}
+.chatmessage::after {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: var(--accent);
+	border-radius: var(--border-radius);
+	margin: -0.25rem;
+	content: '';
+	pointer-events: none;
+}
+.chatmessage:nth-child(even)::after {
+	opacity: 0.1;
+}
+.chatmessage:nth-child(odd)::after {
+	opacity: 0.2;
+}
+.user-name::after {
+	content: ':';
+}
+
+#chat-controls-container {
+	display: grid;
+	grid-template-columns: 1fr 2rem;
+	gap: 0.25rem;
 }

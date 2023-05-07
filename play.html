@@ -21,35 +21,64 @@
 
 		<!-- Styles -->
 		<link rel="stylesheet" href="css/app.css" />
-		<style></style>
 
 		<!-- Scripts -->
 		<script src="js/app.js" defer></script>
 		<script src="js/settings.js" defer></script>
 		<script src="js/watchmedia.js" defer></script>
-		<script src="js/Game.js" defer></script>
+		<script src="js/scale.js" defer></script>
 	</head>
 
 	<body style="--offset: 1rem">
-		<div class="menu-main-container" style="--border-radius: 0.5rem; --offset: 7px">
-			<menu class="card rounded">
-				<div><img src="/favicon.ico" width="48" height="48" /></div>
-				<div></div>
-				<div><img src="/favicon.ico" width="48" height="48" /></div>
-			</menu>
-			<main class="card rounded" style="--width-left: 3fr">
-				<section id="content" class="ingame">
+		<div id="body-content" style="--border-radius: 0.5rem; --offset: 8px">
+			<aside id="menu">
+				<div class="button primary-button">
+					<input type="button" name="" id="menu-toggle" hidden />
+					<label for="menu-toggle"><img src="/favicon.ico" width="48" height="48" title="TEST" /></label>
+				</div>
+				<div id="player-limit" class="element"><span>1/100</span></div>
+				<div id="player-list" class="card rounded" style="--offset: 7px">
+					<div class="player-card">
+						<img src="" width="48" height="48" alt="avatar" title="Playername" />
+					</div>
+				</div>
+				<nav class="card rounded" hidden>
+					<div><img src="/favicon.ico" width="48" height="48" title="TEST" /></div>
+					<div></div>
+					<div><img src="/favicon.ico" width="48" height="48" /></div>
+				</nav>
+			</aside>
+			<main class="card rounded">
+				<div id="main-content" class="ingame">
 					<div id="canvas-container" class="card rounded">
 						<canvas id="canvas" width="400" height="300"></canvas>
 					</div>
 					<div id="tools-container" class="card rounded"></div>
-				</section>
-				<aside id="aside" class="card rounded">
-					<ul>
-						<li>
-							<p><span class="chatmessage" data-username="ApyroNox">Bist du dir sicher? Ich denke dass die eine gewisse größe schon haben sollte.</span></p>
-						</li>
-					</ul>
+				</div>
+				<aside id="sozials">
+					<header id="room-controls-container" class="card rounded">
+						<div class="button secondary-button">
+							<input type="button" name="" id="room-previous" hidden />
+							<label for="message-send"><i class="fa-duotone fa-backward"></i></label>
+						</div>
+						<div class="button secondary-button">
+							<input type="button" name="" id="room-next" hidden />
+							<label for="message-send"><i class="fa-duotone fa-forward"></i></label>
+						</div>
+					</header>
+					<section id="chat" class="card rounded scrollbar">
+						<div class="chatmessage">
+							<span class="user-name">ApyroNox</span>
+							<p class="user-message">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corrupti voluptas dolores, accusantium ullam quasi excepturi laboriosam minima hic expedita vero?</p>
+						</div>
+					</section>
+					<footer id="chat-controls-container" class="card rounded">
+						<input type="text" placeholder="Chat message ..." />
+						<div class="button secondary-button">
+							<input type="button" id="message-send" hidden />
+							<label for="message-send"><i class="fa-duotone fa-paper-plane"></i></label>
+						</div>
+					</footer>
 				</aside>
 			</main>
 		</div>
