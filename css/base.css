@@ -110,6 +110,7 @@ label {
 }
 .element {
 	display: inline-flex;
+	position: relative;
 	flex-direction: row;
 	justify-content: center;
 	align-items: center;
@@ -117,19 +118,11 @@ label {
 	gap: 0.5em;
 	border-radius: var(--border-radius, 0.5rem);
 	user-select: none;
-	position: relative;
 }
 .button {
-	display: inline-flex;
-	flex-direction: row;
-	justify-content: center;
-	align-items: center;
 	background: var(--primary);
 	cursor: pointer;
-	gap: 0.5em;
-	border-radius: var(--border-radius, 0.5rem);
-	user-select: none;
-	position: relative;
+	transition: transform ease 0.2s, box-shadow ease 0.2s;
 }
 .primary-button:hover {
 	transform: translate(0, -3px);
@@ -138,8 +131,6 @@ label {
 .primary-button {
 	background: var(--primbtn);
 	color: var(--secondary);
-	transition: transform ease 0.2s, box-shadow ease 0.2s;
-	/* display: inline-block; */
 }
 .secondary-button:hover {
 	transform: translate(0, -3px);
@@ -147,8 +138,4 @@ label {
 .secondary-button {
 	background: var(--secbtn);
 	color: var(--primary);
-	border-radius: 6px;
-	transition: transform ease 0.2s, box-shadow ease 0.2s;
-	/* display: inline-block; */
-	z-index: 1;
 }

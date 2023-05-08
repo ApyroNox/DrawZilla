@@ -32,15 +32,20 @@
 	<body style="--offset: 1rem">
 		<div id="body-content" style="--border-radius: 0.5rem; --offset: 8px">
 			<aside id="menu">
-				<div class="button primary-button">
+				<div class="element button primary-button">
 					<input type="button" name="" id="menu-toggle" hidden />
 					<label for="menu-toggle"><img src="/favicon.ico" width="48" height="48" /></label>
 				</div>
-				<div></div>
+				<div hidden></div>
 				<nav id="player-list" class="card rounded" style="--offset: 7px">
 					<div class="player-card">
 						<img src="/favicon.ico" width="48" height="48" title="TEST" />
 					</div>
+					<template id="template-navigation">
+						<div class="player-card">
+							<img src="/favicon.ico" width="48" height="48" title="TEST" />
+						</div>
+					</template>
 				</nav>
 			</aside>
 			<main class="card rounded">

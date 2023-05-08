@@ -32,14 +32,16 @@
 	<body style="--offset: 1rem">
 		<div id="body-content" style="--border-radius: 0.5rem; --offset: 8px">
 			<aside id="menu">
-				<div class="button primary-button">
+				<div class="element button primary-button">
 					<input type="button" name="" id="menu-toggle" hidden />
 					<label for="menu-toggle"><img src="/favicon.ico" width="48" height="48" title="TEST" /></label>
 				</div>
-				<div id="player-limit" class="element"><span>1/100</span></div>
-				<div id="player-list" class="card rounded" style="--offset: 7px">
-					<div class="player-card">
-						<img src="" width="48" height="48" alt="avatar" title="Playername" />
+				<div id="player-overview">
+					<div id="player-limit" class="element"><span>1/100</span></div>
+					<div id="player-list" class="card rounded" style="--offset: 7px">
+						<div class="player-card oddeven">
+							<img src="" width="48" height="48" alt="avatar" title="Playername" />
+						</div>
 					</div>
 				</div>
 				<nav class="card rounded" hidden>
@@ -56,25 +58,25 @@
 					<div id="tools-container" class="card rounded"></div>
 				</div>
 				<aside id="sozials">
-					<header id="room-controls-container" class="card rounded">
-						<div class="button secondary-button">
+					<header id="room-controls-container" class="card rounded" style="--border-radius: 0.25rem">
+						<div class="element button secondary-button">
 							<input type="button" name="" id="room-previous" hidden />
 							<label for="message-send"><i class="fa-duotone fa-backward"></i></label>
 						</div>
-						<div class="button secondary-button">
+						<div class="element button secondary-button">
 							<input type="button" name="" id="room-next" hidden />
 							<label for="message-send"><i class="fa-duotone fa-forward"></i></label>
 						</div>
 					</header>
 					<section id="chat" class="card rounded scrollbar">
-						<div class="chatmessage">
+						<div class="chatmessage oddeven">
 							<span class="user-name">ApyroNox</span>
 							<p class="user-message">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corrupti voluptas dolores, accusantium ullam quasi excepturi laboriosam minima hic expedita vero?</p>
 						</div>
 					</section>
 					<footer id="chat-controls-container" class="card rounded">
 						<input type="text" placeholder="Chat message ..." />
-						<div class="button secondary-button">
+						<div class="element button secondary-button" style="--border-radius: 0.25rem">
 							<input type="button" id="message-send" hidden />
 							<label for="message-send"><i class="fa-duotone fa-paper-plane"></i></label>
 						</div>
@@ -82,5 +84,17 @@
 				</aside>
 			</main>
 		</div>
+		
+		<template id="template-player-list-card">
+			<div class="player-card oddeven">
+				<img src="" width="48" height="48" alt="avatar" title="Playername" />
+			</div>
+		</template>
+		<template id="template-chat-message-card">
+			<div class="chatmessage oddeven">
+				<span class="user-name">ApyroNox</span>
+				<p class="user-message">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corrupti voluptas dolores, accusantium ullam quasi excepturi laboriosam minima hic expedita vero?</p>
+			</div>
+		</template>
 	</body>
 </html>
