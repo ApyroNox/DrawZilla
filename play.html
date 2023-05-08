@@ -27,22 +27,19 @@
 		<script src="js/settings.js" defer></script>
 		<script src="js/matchMedia.js" defer></script>
 		<script src="js/scaleUI.js" defer></script>
+		<script src="js/play.js" defer></script>
 	</head>
 
-	<body style="--offset: 1rem">
+	<body style="--offset: 1rem" class="backdrop">
 		<div id="body-content" style="--border-radius: 0.5rem; --offset: 8px">
-			<aside id="menu">
-				<div class="element button primary-button">
-					<input type="button" name="" id="menu-toggle" hidden />
+			<aside id="menu" class="card rounded backdrop">
+				<div class="button-inline button primary-button">
+					<input type="checkbox" id="menu-toggle" hidden />
 					<label for="menu-toggle"><img src="/favicon.ico" width="48" height="48" title="TEST" /></label>
 				</div>
-				<div id="player-overview">
-					<div id="player-limit" class="element"><span>1/100</span></div>
-					<div id="player-list" class="card rounded" style="--offset: 7px">
-						<div class="player-card oddeven">
-							<img src="" width="48" height="48" alt="avatar" title="Playername" />
-						</div>
-					</div>
+				<div id="player-overview" class="card rounded backdrop">
+					<div id="player-limit" class="button-inline"><span>0/100</span></div>
+					<div id="player-list" class="scrollbar"></div>
 				</div>
 				<nav class="card rounded" hidden>
 					<div><img src="/favicon.ico" width="48" height="48" title="TEST" /></div>
@@ -50,7 +47,7 @@
 					<div><img src="/favicon.ico" width="48" height="48" /></div>
 				</nav>
 			</aside>
-			<main class="card rounded">
+			<main class="card rounded backdrop">
 				<div id="main-content" class="ingame">
 					<div id="canvas-container" class="card rounded">
 						<canvas id="canvas" width="400" height="300"></canvas>
@@ -59,24 +56,19 @@
 				</div>
 				<aside id="sozials">
 					<header id="room-controls-container" class="card rounded" style="--border-radius: 0.25rem">
-						<div class="element button secondary-button">
+						<div class="button-inline button secondary-button">
 							<input type="button" name="" id="room-previous" hidden />
 							<label for="message-send"><i class="fa-duotone fa-backward"></i></label>
 						</div>
-						<div class="element button secondary-button">
+						<div class="button-inline button secondary-button">
 							<input type="button" name="" id="room-next" hidden />
 							<label for="message-send"><i class="fa-duotone fa-forward"></i></label>
 						</div>
 					</header>
-					<section id="chat" class="card rounded scrollbar">
-						<div class="chatmessage oddeven">
-							<span class="user-name">ApyroNox</span>
-							<p class="user-message">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corrupti voluptas dolores, accusantium ullam quasi excepturi laboriosam minima hic expedita vero?</p>
-						</div>
-					</section>
+					<section id="chat" class="card rounded scrollbar"></section>
 					<footer id="chat-controls-container" class="card rounded">
 						<input type="text" placeholder="Chat message ..." />
-						<div class="element button secondary-button" style="--border-radius: 0.25rem">
+						<div class="button-inline button secondary-button" style="--border-radius: 0.25rem">
 							<input type="button" id="message-send" hidden />
 							<label for="message-send"><i class="fa-duotone fa-paper-plane"></i></label>
 						</div>
@@ -84,16 +76,16 @@
 				</aside>
 			</main>
 		</div>
-		
+
 		<template id="template-player-list-card">
-			<div class="player-card oddeven">
-				<img src="" width="48" height="48" alt="avatar" title="Playername" />
+			<div class="mini-card oddeven backdrop">
+				<img src="" alt="Avatar" title="Name" data-user="avatar" />
 			</div>
 		</template>
 		<template id="template-chat-message-card">
-			<div class="chatmessage oddeven">
-				<span class="user-name">ApyroNox</span>
-				<p class="user-message">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corrupti voluptas dolores, accusantium ullam quasi excepturi laboriosam minima hic expedita vero?</p>
+			<div class="card oddeven backdrop">
+				<span data-user="name"></span>
+				<p data-user="message"></p>
 			</div>
 		</template>
 	</body>

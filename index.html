@@ -29,31 +29,29 @@
 		<script src="js/scaleUI.js" defer></script>
 	</head>
 
-	<body style="--offset: 1rem">
+	<body style="--offset: 1rem" class="backdrop">
 		<div id="body-content" style="--border-radius: 0.5rem; --offset: 8px">
-			<aside id="menu">
-				<div class="element button primary-button">
-					<input type="button" name="" id="menu-toggle" hidden />
-					<label for="menu-toggle"><img src="/favicon.ico" width="48" height="48" /></label>
+			<aside id="menu" class="card rounded backdrop">
+				<div class="button-inline button primary-button">
+					<input type="checkbox" id="menu-toggle" hidden />
+					<label for="menu-toggle"><img src="/favicon.ico" width="48" height="48" title="TEST" /></label>
 				</div>
-				<div hidden></div>
-				<nav id="player-list" class="card rounded" style="--offset: 7px">
-					<div class="player-card">
-						<img src="/favicon.ico" width="48" height="48" title="TEST" />
-					</div>
-					<template id="template-navigation">
-						<div class="player-card">
-							<img src="/favicon.ico" width="48" height="48" title="TEST" />
+				<nav class="card rounded backdrop">
+					<div id="player-list" class="scrollbar">
+						<div class="mini-card oddeven backdrop">
+							<img src="" width="48" height="48" alt="avatar" title="Playername" />
 						</div>
-					</template>
+					</div>
 				</nav>
 			</aside>
-			<main class="card rounded">
-				<div id="main-content"></div>
+			<main class="card rounded backdrop">
+				<div id="main-content">
+					<div class="card rounded backdrop" style="--backdrop-color: white; --backdrop-layer: -1"></div>
+				</div>
 				<aside id="sozials">
-					<header class="card rounded"></header>
-					<section id="chat" class="card rounded"></section>
-					<footer class="card rounded"></footer>
+					<header id="room-controls-container" class="card rounded" style="--border-radius: 0.25rem"></header>
+					<section id="chat" class="card rounded scrollbar"></section>
+					<footer id="chat-controls-container" class="card rounded"></footer>
 				</aside>
 			</main>
 		</div>
