@@ -1,4 +1,9 @@
 body[data-theme='dark'] {
+	--primary: #ededed;
+	--secondary: #222546;
+	--primbtn: #29658a;
+	--secbtn: #474866;
+	--accent: #d1d2d6;
 }
 body[data-theme='light'] {
 	--primary: #485970;
