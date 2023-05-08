@@ -1,0 +1,37 @@
+/* Realtime Colors */
+
+label {
+	cursor: pointer;
+	text-align: center;
+	display: contents;
+}
+.button {
+	cursor: pointer;
+	transition: transform ease 0.2s, box-shadow ease 0.2s;
+}
+.button-inline {
+	display: inline-flex;
+	position: relative;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	background: var(--secondary);
+	gap: 0.5em;
+	border-radius: var(--border-radius, 0.5rem);
+	user-select: none;
+}
+.primary-button {
+	background: var(--primbtn);
+	color: var(--secondary);
+}
+.primary-button:hover {
+	transform: translate(0, -3px);
+	box-shadow: 0 20px 80px -10px var(--primbtn);
+}
+.secondary-button {
+	background: var(--secbtn);
+	color: var(--primary);
+}
+.secondary-button:hover {
+	transform: translate(0, -3px);
+}

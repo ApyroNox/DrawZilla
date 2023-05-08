@@ -1,18 +1,16 @@
-body.dark {
-	--color-text: var(--light-1);
-	--color-background: #1c1c28;
-	--color-foreground: #28293d;
-	--border-color: var(--light-3);
+body[data-theme='dark'] {
 }
-body.light {
-	--color-text: var(--primary);
-	--color-background: var(--secondary);
-	--color-foreground: var(--primary);
-	--border-color: var(--accent);
+body[data-theme='light'] {
+	--primary: #485970;
+	--secondary: #fefef6;
+	--primbtn: #f6c8c8;
+	--secbtn: #c5dbce;
+	--accent: #91a8d1;
 }
-body.custom {
-	--color-text: var(--primary);
-	--color-background: var(--secondary);
-	--color-foreground: var(--primary);
-	--border-color: var(--accent);
+body[data-theme='tuerkis'] {
+	--primary: #fdfffe;
+	--secondary: #2f4455;
+	--primbtn: #da7b93;
+	--secbtn: #376f70;
+	--accent: #2e151b;
 }
