@@ -1,19 +1,19 @@
 if (window.matchMedia) {
 	window.addEventListener('load', () => {
-		if (globalThis.MediaObserverConfig['prefers-color-scheme']) {
+		if (config.MediaObserver['prefers-color-scheme']) {
 			prefersDarkmode(checkPreferDarkmode());
 			window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function (event) {
 				prefersDarkmode(checkPreferDarkmode());
 			});
 		}
-		if (globalThis.MediaObserverConfig['orientation']) {
+		if (config.MediaObserver['orientation']) {
 			orientationLandscape(checkOrientationLandscape());
 			window.matchMedia('(orientation: landscape)').addEventListener('change', function (event) {
 				orientationLandscape(checkOrientationLandscape());
 			});
 		}
 
-		if (globalThis.MediaObserverConfig['device']) {
+		if (config.MediaObserver['device']) {
 			deviceMobile(checkMobileDevice());
 		}
 	});
