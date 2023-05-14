@@ -21,54 +21,79 @@
 
 		<!-- Styles -->
 		<link rel="stylesheet" href="css/app.css" />
+		<style>
+			body {
+				--menu-layout-open: 0 1fr;
+				--menu-layout-closed: 1fr 0;
+			}
+		</style>
 
 		<!-- Scripts -->
 		<script src="js/app.js" defer></script>
-		<script src="js/settings.js" defer></script>
 		<script src="js/matchMedia.js" defer></script>
-		<script src="js/scaleUI.js" defer></script>
+		<script src="js/scale.js" defer></script>
 		<script src="js/play.js" defer></script>
 	</head>
 
-	<body style="--offset: 1rem" class="backdrop">
-		<div id="body-content" style="--border-radius: 0.5rem; --offset: 8px">
-			<aside id="menu" class="card rounded backdrop">
-				<div class="button-inline button primary-button">
-					<input type="checkbox" id="menu-toggle" hidden />
-					<label for="menu-toggle"><img src="/favicon.ico" width="48" height="48" title="TEST" /></label>
+	<body data-theme="dark: Pale Violet Red">
+		<div id="body-content" style="--offset: 0.5rem; --border-radius: 0.5rem">
+			<input type="checkbox" id="menu-toggle" aria-expanded="false" aria-controls="menu-content" hidden />
+			<aside id="menu-content" class="card backdrop">
+				<div class="card nav-link">
+					<div class="button-inline primary-button">
+						<label for="menu-toggle"><img src="favicon.ico" width="48" height="48" title="TEST" /></label>
+					</div>
+					<div>
+						<span>DrawZilla</span>
+					</div>
 				</div>
-				<div id="player-overview" class="card rounded backdrop">
-					<div id="player-limit" class="button-inline"><span>0/100</span></div>
-					<div id="player-list" class="scrollbar"></div>
-				</div>
-				<nav class="card rounded" hidden>
-					<div><img src="/favicon.ico" width="48" height="48" title="TEST" /></div>
-					<div></div>
-					<div><img src="/favicon.ico" width="48" height="48" /></div>
-				</nav>
+				<menu>
+					<div class="card">
+						<div><span>0/100</span></div>
+						<div>
+							<ul>
+								<li></li>
+							</ul>
+						</div>
+					</div>
+					<nav class="card">
+						<ul id="nav-list">
+							<li>
+								<a href="/play.html" target="_blank" rel="noopener noreferrer" class="nav-link">
+									<div class="button-inline secondary-button">
+										<i class="fa-duotone fa-play"></i>
+									</div>
+									<div>
+										<span>Play</span>
+									</div>
+								</a>
+							</li>
+						</ul>
+					</nav>
+				</menu>
 			</aside>
-			<main class="card rounded backdrop">
+			<main class="card backdrop">
 				<div id="main-content" class="ingame">
-					<div id="canvas-container" class="card rounded">
+					<div id="canvas-container" class="card">
 						<canvas id="canvas" width="400" height="300"></canvas>
 					</div>
-					<div id="tools-container" class="card rounded"></div>
+					<div id="tools-container" class="card"></div>
 				</div>
 				<aside id="sozials">
-					<header id="room-controls-container" class="card rounded" style="--border-radius: 0.25rem">
-						<div class="button-inline button secondary-button">
+					<header id="room-controls-container" class="card">
+						<div class="button-inline secondary-button">
 							<input type="button" name="" id="room-previous" hidden />
 							<label for="message-send"><i class="fa-duotone fa-backward"></i></label>
 						</div>
-						<div class="button-inline button secondary-button">
+						<div class="button-inline secondary-button">
 							<input type="button" name="" id="room-next" hidden />
 							<label for="message-send"><i class="fa-duotone fa-forward"></i></label>
 						</div>
 					</header>
-					<section id="chat" class="card rounded scrollbar"></section>
-					<footer id="chat-controls-container" class="card rounded">
-						<input type="text" placeholder="Chat message ..." />
-						<div class="button-inline button secondary-button" style="--border-radius: 0.25rem">
+					<section id="chat-container" class="card scrollbar"></section>
+					<footer id="chat-controls-container" class="card">
+						<input class="card" type="text" placeholder="Chat message ..." />
+						<div class="button-inline secondary-button">
 							<input type="button" id="message-send" hidden />
 							<label for="message-send"><i class="fa-duotone fa-paper-plane"></i></label>
 						</div>
@@ -78,12 +103,12 @@
 		</div>
 
 		<template id="template-player-list-card">
-			<div class="mini-card oddeven backdrop">
+			<div class="player-card backdrop oddeven">
 				<img src="" alt="Avatar" title="Name" data-user="avatar" />
 			</div>
 		</template>
 		<template id="template-chat-message-card">
-			<div class="card oddeven backdrop">
+			<div class="card backdrop oddeven">
 				<span data-user="name"></span>
 				<p data-user="message"></p>
 			</div>

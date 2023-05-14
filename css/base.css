@@ -5,18 +5,6 @@ html {
 :root {
 	--transition-delay: 0.5s;
 	--box-shadow: 0 0 0.25rem;
-
-	--primary: #485970;
-	--secondary: #fefef6;
-	--primbtn: #f6c8c8;
-	--secbtn: #c5dbce;
-	--accent: #91a8d1;
-
-	/* --Primary: rgb(72, 89, 112); */
-	/* --Secondary: rgb(254, 254, 246); */
-	/* --Primary-Button: rgb(246, 200, 200); */
-	/* --Secondary-Button: rgb(197, 219, 206); */
-	/* --Accent: rgb(145, 168, 209); */
 }
 body {
 	--border-radius: 0.5rem;
@@ -49,6 +37,11 @@ a[href] {
 }
 ul {
 	list-style: none;
+}
+img,
+video,
+iframe {
+	display: block;
 }
 .line:is(.vr, .hr) {
 	border-width: 0;

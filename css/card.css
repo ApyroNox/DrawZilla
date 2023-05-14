@@ -3,24 +3,16 @@
 	overflow: hidden;
 	padding: var(--offset, 0.5rem);
 	position: relative;
-}
-.card > :is(section) {
-	background: var(--background);
-}
-.card > :is(summary, header, footer) {
-	background: var(--foreground);
-}
-.card > :is(summary, header) {
-	border-bottom: 1px solid var(--accent);
-}
-.card > :is(footer) {
-	border-top: 1px solid var(--accent);
-}
-.rounded {
 	border-radius: var(--border-radius, 1rem);
+}
+.card:not(.backdrop) {
+	background: var(--secondary);
+	color: var(--primary);
 }
 .backdrop {
 	position: relative;
+	color: var(--primary);
+	z-index: 1;
 }
 .backdrop::after {
 	position: absolute;
@@ -30,24 +22,9 @@
 	height: 100%;
 	content: '';
 	pointer-events: none;
-	z-index: var(--backdrop-layer, -10);
-	background: var(--backdrop-color, var(--primary));
-	border-radius: var(--border-radius);
-}
-.oddeven {
-	position: relative;
-	--backdrop-layer: 0;
-}
-.oddeven:nth-child(even)::after {
-	opacity: 0.1;
-}
-.oddeven:nth-child(odd)::after {
+	background: var(--primary);
 	opacity: 0.2;
-}
-.mini-card {
-	width: 3rem;
-	height: 3rem;
-	--backdrop-color: var(--primary);
+	z-index: -5;
 }
 .scrollbar {
 	overflow: auto;
