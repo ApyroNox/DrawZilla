@@ -20,7 +20,7 @@ function createChatMessageCard(name, message) {
 	document.getElementById('chat-container').append(card);
 }
 
-function getInvert(hex) {
+function getInvertedColor(hex) {
 	return (Number(`0x1${hex}`) ^ 0xffffff).toString(16).substring(1).toUpperCase();
 }
 
@@ -36,7 +36,7 @@ class GameCanvas {
 		let color = 'FFFFFF';
 		this.context.lineWidth = 1;
 		this.context.fillStyle = `#${color}`;
-		this.context.strokeStyle = `#${getInvert(color)}`;
+		this.context.strokeStyle = `#${getInvertedColor(color)}`;
 		this.context.fillRect(0, 0, this.artboard.width, this.artboard.height);
 	}
 
@@ -56,16 +56,6 @@ class GameCanvas {
 }
 
 let mainCanvas = new GameCanvas(document.querySelector('canvas'));
-
-// Listen for the event.
-window.addEventListener(
-	'custom-resize',
-	(e) => {
-		const data = e.detail;
-		mainCanvas.updateScale(data.rect.width, data.rect.height);
-	},
-	false
-);
 
 function getPressedMouseButtons(event) {
 	let buttons = { left: false, center: false, right: false };
@@ -98,39 +88,44 @@ function getRelativeMousePosition(event) {
 	};
 }
 
+// Listen for the resize event.
+window.addEventListener(
+	'custom-event:resize',
+	(e) => {
+		const data = e.detail;
+		mainCanvas.updateScale(data.rect.width, data.rect.height);
+	},
+	false
+);
+
 mainCanvas.artboard.addEventListener('mousemove', (event) => {
 	// console.log(getAbsoluteMousePosition(event), getRelativeMousePosition(event), getPressedMouseButtons(event));
 });
 
-var cPushArray = new Array();
-var cStep = -1;
-var ctx;
-// ctx = document.getElementById('myCanvas').getContext("2d");
+window.addEventListener('load', () => {
+	document.querySelector('#room-next').addEventListener('click', function () {
+		let roomCurrent = { id: uuidv4(), title: 'MyFirstRoom' };
+		let nextRoomEvent = new CustomEvent('custom-event:room.next', { detail: { room: roomCurrent }, bubbles: true });
+		window.dispatchEvent(nextRoomEvent);
+	});
+	document.querySelector('#room-previous').addEventListener('click', function () {
+		history.back();
+	});
+	console.warn(history.state);
+});
+window.addEventListener(
+	'beforeunload',
+	() => {
+		history.pushState(null, '', `${document.head.querySelector('base').href}play.html`);
+	},
+	false
+);
 
-function cPush() {
-	cStep++;
-	if (cStep < cPushArray.length) {
-		cPushArray.length = cStep;
-	}
-	cPushArray.push(document.getElementById('myCanvas').toDataURL());
-}
-function cUndo() {
-	if (cStep > 0) {
-		cStep--;
-		var canvasPic = new Image();
-		canvasPic.src = cPushArray[cStep];
-		canvasPic.onload = function () {
-			ctx.drawImage(canvasPic, 0, 0);
-		};
-	}
-}
-function cRedo() {
-	if (cStep < cPushArray.length - 1) {
-		cStep++;
-		var canvasPic = new Image();
-		canvasPic.src = cPushArray[cStep];
-		canvasPic.onload = function () {
-			ctx.drawImage(canvasPic, 0, 0);
-		};
-	}
-}
+window.addEventListener('custom-event:room.next', function (event) {
+	let data = event.detail;
+	history.pushState(data, '', `room/${data.room.id}`);
+});
+window.addEventListener('custom-event:room.last', function (event) {
+	let data = event.detail;
+	history.pushState(data, '', `room/${data.room.id}`);
+});

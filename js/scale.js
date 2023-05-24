@@ -31,8 +31,8 @@ function setCSSVariable(element, name, value) {
 	element.style.setProperty(name, value);
 }
 function dispatchCustomResizeEvent(element, details) {
-	let cEvent = new CustomEvent('custom-resize', { detail: details, bubbles: true });
-	element.dispatchEvent(cEvent);
+	let resizeEvent = new CustomEvent('custom-event:resize', { detail: details, bubbles: true });
+	element.dispatchEvent(resizeEvent);
 }
 
 window.addEventListener('load', (event) => {
