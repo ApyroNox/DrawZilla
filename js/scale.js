@@ -1,76 +1,50 @@
-let contentElement = document.querySelector('#main-content');
-let toolsHeight = 56;
+function resize(element) {
+	updateRect(element);
+	let [scaleFactor, width, height] = getScalingDetails(element);
 
-function getBoundingRects(...elements) {
-	elements.forEach((element) => {
-		element.boundings = element.getBoundingClientRect();
-	});
+	setCSSVariable(element, '--main-content-width', width + config.ScalingDetails.reservedWidth + 'px');
+	setCSSVariable(element, '--main-content-height', height + config.ScalingDetails.reservedHeigth + 'px');
+
+	const rect = { width: width, height: height };
+	const scalingData = { ratio: config.ScalingDetails.aspectRatio, multiplicator: scaleFactor, rect };
+	dispatchCustomResizeEvent(window, scalingData);
+}
+function getScalingDetails(element) {
+	let maxWidth = element._rect.width - config.ScalingDetails.reservedWidth - config.ScalingDetails.padding;
+	let maxHeight = element._rect.height - config.ScalingDetails.reservedHeigth - config.ScalingDetails.padding;
+
+	let scaleFactor = isOrientationLandscape() ? Math.floor(maxHeight / config.ScalingDetails.aspectRatio.height) : Math.floor(maxWidth / config.ScalingDetails.aspectRatio.width);
+
+	let width = scaleFactor * config.ScalingDetails.aspectRatio.width;
+	let height = scaleFactor * config.ScalingDetails.aspectRatio.height;
+
+	return [scaleFactor, width, height];
 }
 
-function getFactor(containerBounds) {
-	if (checkElementClass(document.body, 'portrait')) {
-		return (containerBounds.width * 0.25 * 0.01).toFixed(2);
-	} else if (checkElementClass(document.body, 'landscape')) {
-		return ((containerBounds.height - (toolsHeight - 2)) * 0.3325 * 0.01).toFixed(2);
-	}
-	return 1;
+function updateRect(element) {
+	return (element._rect = element.getBoundingClientRect());
 }
-
-function getScalingConfig(containerElement) {
-	getBoundingRects(containerElement);
-
-	let factor = getFactor(containerElement.boundings);
-	let width = Math.floor(400 * factor);
-	let height = Math.floor(300 * factor);
-
-	return [factor, width, height + toolsHeight];
+function isOrientationLandscape() {
+	return document.body.classList.contains('landscape');
 }
-
-function setCanvasParameter(scaleFactor) {
-	document.querySelector('canvas#canvas')?.style.setProperty('--canvas-scale-factor', scaleFactor);
+function setCSSVariable(element, name, value) {
+	element.style.setProperty(name, value);
 }
-
-function setMainParameter(width) {
-	document.querySelector('main').style.setProperty('--width-left', width);
+function dispatchCustomResizeEvent(element, details) {
+	let resizeEvent = new CustomEvent('custom-event:resize', { detail: details, bubbles: true });
+	element.dispatchEvent(resizeEvent);
 }
-
-function checkElementClass(element, cssClass) {
-	return element.classList.contains(cssClass);
-}
-
-function resize() {
-	// reset styles
-	setMainParameter('3fr');
-	setCanvasParameter(1);
-	// if (checkElementClass(document.body, 'portrait')) isPortrait = mainElement.boundings.width - canvasContainerElement.boundings.width > 300;
-
-	let [factor, width, height] = getScalingConfig(contentElement);
-
-	let scale = checkElementClass(document.body, 'landscape') ? width.toString() + 'px' : height.toString() + 'px';
-
-	setMainParameter(scale);
-	setCanvasParameter(factor);
-}
-
-// document.addEventListener('DOMContentLoaded', (event) => {
-// 	console.log('document.DOMContentLoaded');
-// });
-// document.addEventListener('readystatechange', (event) => {
-// 	console.log(`document.readystatechange.${document.readyState}`);
-// });
-// window.addEventListener('load', (event) => {
-// 	console.log('window.load');
-// });
 
 window.addEventListener('load', (event) => {
 	let _resizeTimeOut;
+	const mainElement = document.querySelector('main');
 
 	clearTimeout(_resizeTimeOut);
-	resize();
+	resize(mainElement);
 	// _resizeTimeOut = setTimeout(resize, 100);
 
 	window.addEventListener('resize', function () {
 		clearTimeout(_resizeTimeOut);
-		_resizeTimeOut = setTimeout(resize, 100);
+		_resizeTimeOut = setTimeout(resize.bind(globalThis,mainElement), 100);
 	});
 });

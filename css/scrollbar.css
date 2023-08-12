@@ -1,7 +1,7 @@
 .scrollbar {
 	--scrollbar-width: 8px;
-	--scrollbar-track: var(--color-background, #222);
-	--scrollbar-thumb: var(--color-foreground, #ddd);
+	--scrollbar-track: var(--secondary, #222);
+	--scrollbar-thumb: var(--primary, #ddd);
 	scrollbar-gutter: stable;
 	scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
 }
