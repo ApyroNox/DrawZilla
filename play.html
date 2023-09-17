@@ -1,115 +1,121 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<meta http-equiv="Content-Language" content="en" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta http-equiv="Pragma" content="cache" />
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Language" content="en" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Pragma" content="cache" />
 
-		<title>DrawZilla</title>
-		<base href="/" />
+    <title>DrawZilla</title>
+    <base href="/" />
 
-		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 
-		<!-- Fonts -->
-		<link rel="preload" href="fonts/font-awesome-v6.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
-		<link rel="preload" href="fonts/font-nunito.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
-		<noscript>
-			<link rel="stylesheet" href="fonts/font-awesome-v6.css" />
-			<link rel="stylesheet" href="fonts/font-nunito.css" />
-		</noscript>
+    <!-- Fonts -->
+    <link rel="preload" href="fonts/font-awesome-v6.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <link rel="preload" href="fonts/font-nunito.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript>
+      <link rel="stylesheet" href="fonts/font-awesome-v6.css" />
+      <link rel="stylesheet" href="fonts/font-nunito.css" />
+    </noscript>
 
-		<!-- Styles -->
-		<link rel="stylesheet" href="css/app.css" />
-		<style>
-			body {
-				--menu-layout-open: 0 1fr;
-				--menu-layout-closed: 1fr 0;
-			}
-		</style>
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/app.css" />
+    <style>
+      body {
+        --menu-layout-open: 0 1fr;
+        --menu-layout-closed: 1fr 0;
+      }
+    </style>
 
-		<!-- Scripts -->
-		<script src="js/generator.js"></script>
-		<script src="js/app.js" defer></script>
-		<script src="js/matchMedia.js" defer></script>
-		<script src="js/scale.js" defer></script>
-		<script src="js/play.js" defer></script>
-	</head>
+    <!-- Scripts -->
+    <script src="js/generator.js"></script>
+    <script src="js/app.js" defer></script>
+    <script src="js/matchMedia.js" defer></script>
+    <script src="js/scale.js" defer></script>
+    <script src="js/play.js" defer></script>
+  </head>
 
-	<body data-theme="dark: Pale Violet Red">
-		<div id="body-content" style="--offset: 0.5rem; --border-radius: 0.5rem">
-			<input type="checkbox" id="menu-toggle" aria-expanded="false" aria-controls="menu-content" hidden />
-			<aside id="menu-content" class="card backdrop">
-				<label for="menu-toggle" title="Toggle Menu" class="card backdrop nav-link button-inline primary-button">
-					<div class="button-inline">
-						<img src="favicon.ico" width="48" height="48"/>
-					</div>
-					<div>
-						<span>DrawZilla</span>
-					</div>
-				</label>
-				<menu>
-					<div class="card">
-						<p style="margin: 0 -0.5rem; text-align: center">0/100</p>
-						<div id="player-list"></div>
-					</div>
-					<nav class="card">
-						<ul id="nav-list">
-							<li>
-								<a href="index.html" title="Home" target="_self" rel="noopener noreferrer" class="nav-link secondary-button button-inline">
-									<div class="button-inline">
-										<i class="fa-duotone fa-house"></i>
-									</div>
-									<div>
-										<span>Home</span>
-									</div>
-								</a>
-							</li>
-						</ul>
-					</nav>
-				</menu>
-			</aside>
-			<main class="card backdrop">
-				<div id="main-content" class="ingame">
-					<div id="canvas-container" class="card">
-						<canvas id="canvas" width="400" height="300"></canvas>
-					</div>
-					<div id="tools-container" class="card"></div>
-				</div>
-				<aside id="sozials">
-					<header id="room-controls-container" class="card">
-						<label for="room-previous" title="Previous Room" class="button-inline secondary-button">
-							<input type="button" name="" id="room-previous" hidden />
-							<span><i class="fa-duotone fa-backward"></i></span>
-						</label>
-						<label for="room-next" title="Next Room" class="button-inline secondary-button">
-							<input type="button" name="" id="room-next" hidden />
-							<span><i class="fa-duotone fa-forward"></i></span>
-						</label>
-					</header>
-					<section id="chat-container" class="card scrollbar"></section>
-					<footer id="chat-controls-container" class="card">
-						<input class="card" type="text" placeholder="Chat message ..." />
-						<div class="button-inline secondary-button">
-							<input type="button" id="message-send" hidden />
-							<label for="message-send"><i class="fa-duotone fa-paper-plane"></i></label>
-						</div>
-					</footer>
-				</aside>
-			</main>
-		</div>
+  <body data-theme="dark: Pale Violet Red">
+    <div id="body-content" style="--offset: 0.5rem; --border-radius: 0.5rem">
+      <input type="checkbox" id="menu-toggle" aria-expanded="false" aria-controls="menu-content" hidden />
+      <aside id="menu-content" class="card backdrop">
+        <label for="menu-toggle" title="Toggle Menu" class="card backdrop nav-link button-inline primary-button">
+          <div class="button-inline">
+            <img src="favicon.ico" width="48" height="48" />
+          </div>
+          <div>
+            <span>DrawZilla</span>
+          </div>
+        </label>
+        <menu>
+          <div class="card">
+            <p style="margin: 0 -0.5rem; text-align: center">0/100</p>
+            <div id="player-list"></div>
+          </div>
+          <nav class="card">
+            <ul id="nav-list">
+              <li>
+                <a
+                  href="index.html"
+                  title="Home"
+                  target="_self"
+                  rel="noopener noreferrer"
+                  class="nav-link secondary-button button-inline"
+                >
+                  <div class="button-inline">
+                    <i class="fa-duotone fa-house"></i>
+                  </div>
+                  <div>
+                    <span>Home</span>
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </menu>
+      </aside>
+      <main class="card backdrop">
+        <div id="main-content" class="ingame">
+          <div id="canvas-container" class="card">
+            <canvas id="canvas" width="400" height="300"></canvas>
+          </div>
+          <div id="tools-container" class="card"></div>
+        </div>
+        <aside id="sozials">
+          <header id="room-controls-container" class="card">
+            <label for="room-previous" title="Previous Room" class="button-inline secondary-button">
+              <input type="button" name="" id="room-previous" hidden />
+              <span><i class="fa-duotone fa-backward"></i></span>
+            </label>
+            <label for="room-next" title="Next Room" class="button-inline secondary-button">
+              <input type="button" name="" id="room-next" hidden />
+              <span><i class="fa-duotone fa-forward"></i></span>
+            </label>
+          </header>
+          <section id="chat-container" class="card scrollbar"></section>
+          <footer id="chat-controls-container" class="card">
+            <input class="card" type="text" placeholder="Chat message ..." />
+            <div class="button-inline secondary-button">
+              <input type="button" id="message-send" hidden />
+              <label for="message-send"><i class="fa-duotone fa-paper-plane"></i></label>
+            </div>
+          </footer>
+        </aside>
+      </main>
+    </div>
 
-		<template id="template-player-list-card">
-			<div class="player-card backdrop oddeven">
-				<img src="" alt="Avatar" title="Name" data-user="avatar" />
-			</div>
-		</template>
-		<template id="template-chat-message-card">
-			<div class="card backdrop oddeven">
-				<span data-user="name"></span>
-				<p data-user="message"></p>
-			</div>
-		</template>
-	</body>
+    <template id="template-player-list-card">
+      <div class="player-card backdrop oddeven">
+        <img src="" alt="Avatar" title="Name" data-user="avatar" />
+      </div>
+    </template>
+    <template id="template-chat-message-card">
+      <div class="card backdrop oddeven">
+        <span data-user="name"></span>
+        <p data-user="message"></p>
+      </div>
+    </template>
+  </body>
 </html>

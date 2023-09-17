@@ -8,66 +8,66 @@
 
 /* Body */
 body {
-	display: flex;
-	height: 100dvh;
-	padding: var(--offset, 2rem);
-	overflow: hidden;
-	/* font-size: 1.25rem; */
-	/* font-weight: 400; */
-	background-color: var(--secondary);
-	/* background-image: url(https://i.pinimg.com/564x/8d/ae/a3/8daea3fe0f41a94b92a478347f329c10.jpg); */
-	/* background-image: url(https://i.pinimg.com/750x/9c/ba/06/9cba06cea2724518790b4ae0bb89367f.jpg); */
-	/* background-image: url(https://i.pinimg.com/564x/7c/d4/67/7cd467fae83045fc6f11b7e2d53ba4f8.jpg); */
-	/* background-image: url(https://i.pinimg.com/564x/ce/73/f3/ce73f3290de2769b00d66af448f6ca08.jpg); */
-	/* background-image: url(https://i.pinimg.com/564x/28/86/65/2886650472dd9e902f587ddb553f647b.jpg); */
-	/* background-image: url(https://i.pinimg.com/564x/8a/1c/e0/8a1ce071e4f8c5c2ae740d52a765c2a2.jpg); */
-	/* background-image: url(https://i.pinimg.com/564x/c1/12/40/c11240d1be757015be76447c36306774.jpg); */
-	/* background-image: url(https://cutewallpaper.org/21/desktop-wallpaper-red/25-Awesome-Fall-Wallpapers-For-Your-Desktop.jpg); */
-	/* background-image: url(https://images7.alphacoders.com/411/411820.jpg); */
-	background-repeat: round;
-	color: var(--accent);
+  display: flex;
+  height: 100dvh;
+  padding: var(--offset, 2rem);
+  overflow: hidden;
+  /* font-size: 1.25rem; */
+  /* font-weight: 400; */
+  background-color: var(--secondary);
+  /* background-image: url(https://i.pinimg.com/564x/8d/ae/a3/8daea3fe0f41a94b92a478347f329c10.jpg); */
+  /* background-image: url(https://i.pinimg.com/750x/9c/ba/06/9cba06cea2724518790b4ae0bb89367f.jpg); */
+  /* background-image: url(https://i.pinimg.com/564x/7c/d4/67/7cd467fae83045fc6f11b7e2d53ba4f8.jpg); */
+  /* background-image: url(https://i.pinimg.com/564x/ce/73/f3/ce73f3290de2769b00d66af448f6ca08.jpg); */
+  /* background-image: url(https://i.pinimg.com/564x/28/86/65/2886650472dd9e902f587ddb553f647b.jpg); */
+  /* background-image: url(https://i.pinimg.com/564x/8a/1c/e0/8a1ce071e4f8c5c2ae740d52a765c2a2.jpg); */
+  /* background-image: url(https://i.pinimg.com/564x/c1/12/40/c11240d1be757015be76447c36306774.jpg); */
+  /* background-image: url(https://cutewallpaper.org/21/desktop-wallpaper-red/25-Awesome-Fall-Wallpapers-For-Your-Desktop.jpg); */
+  /* background-image: url(https://images7.alphacoders.com/411/411820.jpg); */
+  background-repeat: round;
+  color: var(--accent);
 }
 @media (max-aspect-ratio: 5/3) {
-	#body-content {
-		width: 100%;
-	}
+  #body-content {
+    width: 100%;
+  }
 }
 @media (min-aspect-ratio: 5/3) {
-	#body-content {
-		height: 100%;
-	}
+  #body-content {
+    height: 100%;
+  }
 }
 #body-content {
-	display: grid;
-	grid-template-columns: 5rem 1fr;
-	max-width: 100%;
-	max-height: 100%;
-	margin: auto;
-	gap: 0.5rem;
+  display: grid;
+  grid-template-columns: 5rem 1fr;
+  max-width: 100%;
+  max-height: 100%;
+  margin: auto;
+  gap: 0.5rem;
 }
 body:is(.landscape) #body-content {
-	aspect-ratio: 5/3;
+  aspect-ratio: 5/3;
 }
 body:is(.portrait) #body-content {
-	aspect-ratio: 3/5;
+  aspect-ratio: 3/5;
 }
 
 /* Main */
 #main-content {
-	display: grid;
-	grid-template-rows: 1fr;
-	gap: 0.5rem;
+  display: grid;
+  grid-template-rows: 1fr;
+  gap: 0.5rem;
 }
 #main-content.ingame {
-	grid-template-rows: 1fr 3rem;
+  grid-template-rows: 1fr 3rem;
 }
 main {
-	display: grid;
-	grid-template-columns: var(--main-content-width, 3fr) 1fr;
-	height: 100%;
-	gap: 0.5rem;
+  display: grid;
+  grid-template-columns: var(--main-content-width, 3fr) 1fr;
+  height: 100%;
+  gap: 0.5rem;
 }
 body:is(.portrait) main {
-	grid-template-rows: var(--main-content-height, 3fr) 1fr;
-	grid-template-columns: auto;
+  grid-template-rows: var(--main-content-height, 3fr) 1fr;
+  grid-template-columns: auto;
 }

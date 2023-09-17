@@ -1,40 +1,40 @@
 /* Menu */
 #menu-content {
-	display: grid;
-	grid-template-rows: 4rem 1fr;
-	gap: 0.5rem;
-	z-index: 2;
-	transition: all 200ms ease-in-out;
-	width: 100%;
+  display: grid;
+  grid-template-rows: 4rem 1fr;
+  gap: 0.5rem;
+  z-index: 2;
+  transition: all 200ms ease-in-out;
+  width: 100%;
 }
 #menu-toggle:is(:checked) + #menu-content {
-	width: 16rem;
+  width: 16rem;
 }
 .nav-link {
-	display: grid;
-	grid-template-columns: 3rem 1fr;
-	font-size: 1.5rem;
-	justify-content: left;
+  display: grid;
+  grid-template-columns: 3rem 1fr;
+  font-size: 1.5rem;
+  justify-content: left;
 }
 a.nav-link {
-	text-decoration: none;
+  text-decoration: none;
 }
 .nav-link > :first-child {
-	aspect-ratio: 1/1;
+  aspect-ratio: 1/1;
 }
 .nav-link > :last-child {
-	display: flex;
+  display: flex;
 }
 .nav-link > :last-child > * {
-	margin: auto 0;
+  margin: auto 0;
 }
 menu {
-	display: grid;
-	overflow: hidden;
+  display: grid;
+  overflow: hidden;
 }
 #menu-toggle:not(:checked) + #menu-content menu {
-	grid-template-rows: var(--menu-layout-closed, 1fr);
+  grid-template-rows: var(--menu-layout-closed, 1fr);
 }
 #menu-toggle:is(:checked) + #menu-content menu {
-	grid-template-rows: var(--menu-layout-open, 1fr);
+  grid-template-rows: var(--menu-layout-open, 1fr);
 }

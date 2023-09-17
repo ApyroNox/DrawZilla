@@ -1,49 +1,49 @@
 body[data-theme='light: Roman'] {
-	--primary: #485970;
-	--secondary: #fefef6;
-	--primbtn: #f6c8c8;
-	--secbtn: #c5dbce;
-	--accent: #91a8d1;
+  --primary: #485970;
+  --secondary: #fefef6;
+  --primbtn: #f6c8c8;
+  --secbtn: #c5dbce;
+  --accent: #91a8d1;
 }
 body[data-theme='light: Arsenic'] {
-	--primary: #24242e;
-	--secondary: #e8e8ea;
-	--primbtn: #40314e;
-	--secbtn: #c0b3a0;
-	--accent: #30343f;
+  --primary: #24242e;
+  --secondary: #e8e8ea;
+  --primbtn: #40314e;
+  --secbtn: #c0b3a0;
+  --accent: #30343f;
 }
 body[data-theme='light: Light Sea Green'] {
-	--primary: #444444;
-	--secondary: #f7f7fc;
-	--primbtn: #22baa0;
-	--secbtn: #ffffff;
-	--accent: #5e36ca;
+  --primary: #444444;
+  --secondary: #f7f7fc;
+  --primbtn: #22baa0;
+  --secbtn: #ffffff;
+  --accent: #5e36ca;
 }
 body[data-theme='light: Dark Cyan'] {
-	--primary: #1b2541;
-	--secondary: #f1f1ef;
-	--primbtn: #048a95;
-	--secbtn: #9bd0d4;
-	--accent: #e37224;
+  --primary: #1b2541;
+  --secondary: #f1f1ef;
+  --primbtn: #048a95;
+  --secbtn: #9bd0d4;
+  --accent: #e37224;
 }
 body[data-theme='light: Havelock Blue'] {
-    --primary: #222127;
-    --secondary: #d9d9d9;
-    --primbtn: #4484ce;
-    --secbtn: #ead36c;
-    --accent: #f19f4d;
+  --primary: #222127;
+  --secondary: #d9d9d9;
+  --primbtn: #4484ce;
+  --secbtn: #ead36c;
+  --accent: #f19f4d;
 }
 body[data-theme='dark: Pale Violet Red'] {
-	--primary: #fdfffe;
-	--secondary: #2f4455;
-	--primbtn: #da7b93;
-	--secbtn: #376f70;
-	--accent: #2e151b;
+  --primary: #fdfffe;
+  --secondary: #2f4455;
+  --primbtn: #da7b93;
+  --secbtn: #376f70;
+  --accent: #2e151b;
 }
 body[data-theme='dark: Nepal'] {
-	--primary: #ebebee;
-	--secondary: #031424;
-	--primbtn: #90adbb;
-	--secbtn: #30415d;
-	--accent: #cf6766;
+  --primary: #ebebee;
+  --secondary: #031424;
+  --primbtn: #90adbb;
+  --secbtn: #30415d;
+  --accent: #cf6766;
 }
