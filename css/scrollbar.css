@@ -1,30 +1,30 @@
 .scrollbar {
-	--scrollbar-width: 8px;
-	--scrollbar-track: var(--secondary, #222);
-	--scrollbar-thumb: var(--primary, #ddd);
-	scrollbar-gutter: stable;
-	scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+  --scrollbar-width: 8px;
+  --scrollbar-track: var(--secondary, #222);
+  --scrollbar-thumb: var(--primary, #ddd);
+  scrollbar-gutter: stable;
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
 }
 .scrollbar::-webkit-scrollbar,
 .scrollbar::-webkit-scrollbar-button,
 .scrollbar::-webkit-scrollbar-thumb,
 .scrollbar::-webkit-scrollbar-track {
-	border-radius: 5rem;
+  border-radius: 5rem;
 }
 .scrollbar::-webkit-scrollbar,
 .scrollbar::-webkit-scrollbar-track {
-	background: var(--scrollbar-track);
-	width: var(--scrollbar-width);
+  background: var(--scrollbar-track);
+  width: var(--scrollbar-width);
 }
 .scrollbar::-webkit-scrollbar-thumb {
-	background: var(--scrollbar-thumb);
+  background: var(--scrollbar-thumb);
 }
 .scrollbar::-webkit-scrollbar-button {
-	height: 0;
+  height: 0;
 }
 .scrollbar.scrollbar-btns::-webkit-scrollbar-button {
-	height: var(--scrollbar-width);
+  height: var(--scrollbar-width);
 }
 .scrollbar.scrollbar-btns {
-	scrollbar-width: unset;
+  scrollbar-width: unset;
 }

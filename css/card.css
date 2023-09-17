@@ -1,33 +1,33 @@
 .card {
-	border: 0;
-	overflow: hidden;
-	padding: var(--offset, 0.5rem);
-	position: relative;
-	border-radius: var(--border-radius, 1rem);
+  border: 0;
+  overflow: hidden;
+  padding: var(--offset, 0.5rem);
+  position: relative;
+  border-radius: var(--border-radius, 1rem);
 }
 .card:not(.backdrop) {
-	background: var(--secondary);
-	color: var(--primary);
+  background: var(--secondary);
+  color: var(--primary);
 }
 .backdrop {
-	position: relative;
-	color: var(--primary);
-	z-index: 1;
+  position: relative;
+  color: var(--primary);
+  z-index: 1;
 }
 .backdrop::after {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	content: '';
-	pointer-events: none;
-	background: var(--primary);
-	opacity: 0.2;
-	z-index: -5;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  content: '';
+  pointer-events: none;
+  background: var(--primary);
+  opacity: 0.2;
+  z-index: -5;
 }
 .scrollbar {
-	overflow: auto;
-	margin-right: -0.5rem;
-	padding-right: 0.5rem;
+  overflow: auto;
+  margin-right: -0.5rem;
+  padding-right: 0.5rem;
 }
