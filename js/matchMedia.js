@@ -1,29 +1,34 @@
 if (window.matchMedia) {
   window.addEventListener('load', () => {
     if (config.MediaObserver['prefers-color-scheme']) {
-      prefersDarkmode(checkPreferDarkmode());
+      applyTheme(checkPreferDarkmode());
+
       window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function (event) {
-        prefersDarkmode(checkPreferDarkmode());
+        applyTheme(checkPreferDarkmode());
       });
     }
+
     if (config.MediaObserver['orientation']) {
-      orientationLandscape(checkOrientationLandscape());
+      applyOrientation(checkOrientationLandscape());
+
       window.matchMedia('(orientation: landscape)').addEventListener('change', function (event) {
-        orientationLandscape(checkOrientationLandscape());
+        applyOrientation(checkOrientationLandscape());
       });
     }
 
     if (config.MediaObserver['device']) {
-      deviceMobile(checkMobileDevice());
+      applyDeviceType(checkMobileDevice());
     }
   });
 
   function checkPreferDarkmode() {
     return window.matchMedia('(prefers-color-scheme: dark)').matches;
   }
+
   function checkOrientationLandscape() {
     return window.matchMedia('(orientation: landscape)').matches;
   }
+
   function checkMobileDevice() {
     let check = false;
     (function (a) {
@@ -40,18 +45,20 @@ if (window.matchMedia) {
     return check;
   }
 
-  function prefersDarkmode(yes) {
-    yes
+  function applyTheme(prefersDarkmode) {
+    prefersDarkmode
       ? (document.body.classList.add('dark'), document.body.classList.remove('light'))
       : (document.body.classList.add('light'), document.body.classList.remove('dark'));
   }
-  function orientationLandscape(yes) {
-    yes
+
+  function applyOrientation(isLandscape) {
+    isLandscape
       ? (document.body.classList.add('landscape'), document.body.classList.remove('portrait'))
       : (document.body.classList.add('portrait'), document.body.classList.remove('landscape'));
   }
-  function deviceMobile(yes) {
-    yes
+
+  function applyDeviceType(isMobile) {
+    isMobile
       ? (document.body.classList.add('mobile'), document.body.classList.remove('desktop'))
       : (document.body.classList.add('desktop'), document.body.classList.remove('mobile'));
   }

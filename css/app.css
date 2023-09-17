@@ -27,17 +27,10 @@ body {
   background-repeat: round;
   color: var(--accent);
 }
-@media (max-aspect-ratio: 5/3) {
-  #body-content {
-    width: 100%;
-  }
-}
-@media (min-aspect-ratio: 5/3) {
-  #body-content {
-    height: 100%;
-  }
-}
+
 #body-content {
+  --_height: 3;
+  --_width: 5;
   display: grid;
   grid-template-columns: 5rem 1fr;
   max-width: 100%;
@@ -45,11 +38,13 @@ body {
   margin: auto;
   gap: 0.5rem;
 }
+
 body:is(.landscape) #body-content {
-  aspect-ratio: 5/3;
+  aspect-ratio: var(--_width) / var(--_height);
 }
+
 body:is(.portrait) #body-content {
-  aspect-ratio: 3/5;
+  aspect-ratio: var(--_height) / var(--_width);
 }
 
 /* Main */
@@ -58,16 +53,38 @@ body:is(.portrait) #body-content {
   grid-template-rows: 1fr;
   gap: 0.5rem;
 }
+
 #main-content.ingame {
   grid-template-rows: 1fr 3rem;
 }
+
 main {
   display: grid;
   grid-template-columns: var(--main-content-width, 3fr) 1fr;
   height: 100%;
   gap: 0.5rem;
 }
+
 body:is(.portrait) main {
   grid-template-rows: var(--main-content-height, 3fr) 1fr;
   grid-template-columns: auto;
+}
+
+@media (max-aspect-ratio: 5/3) {
+  #body-content {
+    width: 100%;
+  }
+}
+
+@media (min-aspect-ratio: 5/3) {
+  #body-content {
+    height: 100%;
+  }
+}
+
+@media (max-height: 360px), (max-width: 360px) {
+  #body-content {
+    --_width: 2;
+    --_height: 1;
+  }
 }

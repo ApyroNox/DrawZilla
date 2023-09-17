@@ -5,6 +5,7 @@
   padding: 0;
   overflow: visible;
 }
+
 canvas {
   background: white;
   position: absolute;
@@ -23,15 +24,18 @@ canvas {
   gap: 0.5rem;
   overflow: hidden;
 }
+
 #chat-container {
   word-wrap: break-word;
   margin: 0;
 }
+
 #room-controls-container {
   display: grid;
   grid-template-columns: auto auto;
   gap: 0.5rem;
 }
+
 #chat-controls-container {
   display: grid;
   grid-template-columns: 1fr 2rem;
@@ -43,9 +47,11 @@ canvas {
   max-height: 3rem;
   padding: 0.25rem;
 }
+
 [data-user='name']::after {
   content: ':';
 }
+
 input[type='text'] {
   padding: 0 0.25rem;
   border: 1px solid;
@@ -54,19 +60,24 @@ input[type='text'] {
 .player-card {
   display: flex;
 }
+
 .player-card::after {
   border-radius: 0.25rem;
 }
+
 .mini-card {
   width: 3rem;
   height: 3rem;
 }
+
 .oddeven {
   position: relative;
 }
+
 .oddeven:nth-child(even)::after {
   opacity: 0.3;
 }
+
 .oddeven:nth-child(odd)::after {
   opacity: 0.2;
 }
